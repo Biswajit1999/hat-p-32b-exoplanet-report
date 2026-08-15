@@ -1,0 +1,2 @@
+pl_name,hostname,ra,dec,pl_orbper,pl_tranmid,pl_trandur,pl_rade,pl_bmasse,pl_eqt,pl_orbsmax,sy_dist,sy_tmag,st_teff,st_rad,st_mass,disc_year,discoverymethod,disc_refname,disc_pubdate,disc_facility
+HAT-P-32 b,HAT-P-32,31.0427614,46.6878512,2.1500082,2455867.402743,3.12048,22.19382,216.1244,1835.7,0.03397,289.205,10.7696,6001.0,1.367,1.132,2011,Transit,<a refstr=HARTMAN_ET_AL__2011 href=https://ui.adsabs.harvard.edu/abs/2011arXiv1106.1212H/abstract target=ref> Hartman et al. 2011 </a>,2011-11,HATNet
