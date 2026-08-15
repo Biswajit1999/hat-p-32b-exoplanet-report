@@ -1,10 +1,20 @@
-# HAT-P-32 b — Real TESS Transit Report
+# HAT-P-32 b: An Inflated Giant behind a Hazy Limb
 
+<!-- TARGET-IDENTITY-START -->
+<p align="center">
+  <img src="assets/artist_concept.webp" alt="Artist's interpretation of HAT-P-32 b near its host star" width="900">
+</p>
+
+<p align="center"><em>AI-generated artist's interpretation informed by the measured system properties; not a direct image.</em></p>
+
+**Inflated hot Jupiter · haze and clouds · TESS**
+
+A bloated hot Jupiter around an active F star, analyzed with a timing-adjusted TESS fit and conservative correlated-noise scaling.
+<!-- TARGET-IDENTITY-END -->
 <p align="center">
   <img src="figures/hatp32b_tess_transit.png" alt="Phase-folded real TESS transit light curve of HAT-P-32 b" width="760">
 </p>
 
-One real public TESS SPOC light curve; one historical NASA Exoplanet Archive ephemeris; one timing-adjusted, limb-darkened transit fit.
 
 **[Open the full report](https://biswajit1999.github.io/hat-p-32b-exoplanet-report/)** — the live GitHub Pages version.
 
