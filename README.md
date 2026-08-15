@@ -4,8 +4,7 @@
   <img src="figures/hatp32b_tess_transit.png" alt="Phase-folded real TESS transit light curve of HAT-P-32 b" width="760">
 </p>
 
-One real, public TESS SPOC light curve; one saved NASA Exoplanet Archive
-ephemeris; one reproducible flat-versus-box statistical comparison.
+One real public TESS SPOC light curve; one historical NASA Exoplanet Archive ephemeris; one timing-adjusted, limb-darkened transit fit.
 
 **[Open the full report](https://biswajit1999.github.io/hat-p-32b-exoplanet-report/)** — the live GitHub Pages version.
 
@@ -24,30 +23,29 @@ python scripts/analyze_multisector.py
 pytest tests/ -v
 ```
 
-The script keeps finite `QUALITY == 0` cadences, normalizes `PDCSAP_FLUX`,
-applies one symmetric robust outlier rule, and examines ±2.5 published transit
-durations around the fixed NASA ephemeris. It compares a weighted constant with
-a two-level box whose depth is fitted. Timing and duration are not searched.
+The script keeps finite `QUALITY == 0` cadences, normalizes `PDCSAP_FLUX`, and applies one symmetric robust outlier rule. A local linear null is compared with a circular quadratic-limb-darkened transit. The archive period and predicted phase are retained, while midpoint, radius ratio, impact parameter, baseline, and baseline slope are fitted inside a bounded window. The limb-darkening coefficients and scaled semi-major axis are fixed and disclosed in the CSV.
 
-## What the numbers show
+## What the corrected fit shows
 
 | Quantity | Result |
 |---|---:|
 | TESS sector | 58 |
-| Cadences in comparison | 5871 |
-| Fitted box depth | 20394.7 ± 50.9 ppm |
-| Flat χ² / dof / p | 194882.54 / 5870 / < 1e-300 |
-| Box χ² / dof / p | 34061.44 / 5869 / < 1e-300 |
-| Improvement Δχ² / Δdof / p | 160821.10 / 1 / < 1e-300 |
+| Cadences in fitted window | 6993 |
+| Transit support | ΔBIC ≥ 10 |
+| Midpoint correction | -0.009 h ± 0.12 min |
+| Model mid-transit depth | 25870.4 ± 67.1 ppm |
+| Radius ratio Rp/Rs | 0.15215 |
+| Fitted / published duration | 3.254 / 3.120 h |
+| Linear null χ² / dof / BIC | 202685.61 / 6991 / 202703.31 |
+| Transit χ² / dof / BIC | 8083.21 / 6988 / 8127.47 |
+| ΔBIC (null − transit) | 194575.84 |
 
-The fixed-window box improves strongly on a flat light curve for these data. This establishes only how these archived fluxes compare with this
-pre-specified box model. It does not independently confirm the planet or identify
-an atmosphere.
+The timing-adjusted transit is strongly preferred by ΔBIC = 194575.8. Its fitted midpoint is -0.009 hours from the historical prediction; the model's mid-transit depth is 25870.4 ± 67.1 ppm. A fitted timing correction can diagnose ephemeris drift, but this single-sector fit is not a replacement for a global transit-timing analysis.
 
 <!-- MULTISECTOR-UPGRADE-START -->
 ## Multi-sector robustness and correlated noise
 
-The fixed archive ephemeris was fitted independently in 1 usable sector(s) (S58). Formal depth errors were inflated by sqrt(max(reduced chi-square, 1)) times the residual time-averaging beta factor (observed range 3.04-3.04). The robust inverse-variance depth is 20394.7 +/- 372.8 ppm; a sector-to-sector Q test requires at least two usable sectors. These scaled errors address underestimated scatter and short-timescale correlation, but they are not a full Gaussian-process or physical limb-darkened transit fit.
+The archive prediction was timing-adjusted independently in 1 fitted sector(s) (S58), of which 1 meet Delta BIC >= 10. Formal depth errors were inflated by sqrt(max(reduced chi-square, 1)) times the residual time-averaging beta factor (observed range 2.26-2.26). The robust inverse-variance model depth across supported sectors is 25870.4 +/- 151.6 ppm; a sector-to-sector Q test requires at least two supported sectors. These scaled errors address underestimated scatter and short-timescale correlation, but they are not a full Gaussian-process or physical limb-darkened transit fit.
 
 <p align="center"><img src="figures/hatp32b_multisector_transits.png" alt="Independent sector transit fits for HAT-P-32 b" width="760"></p>
 
@@ -71,11 +69,11 @@ The per-sector table is in [`figures/multisector_statistics.csv`](figures/multis
 
 ## Limitations
 
-- A box is not a limb-darkened physical transit model and does not retrieve radius ratio, impact parameter, or stellar density.
-- Period, mid-transit epoch, and duration are fixed to one NASA composite row; their uncertainties and transit-timing variations are not propagated.
-- SPOC PDCSAP processing, crowding corrections, stellar variability, time-correlated noise, and underestimated point uncertainties can make absolute χ² p-values poor even when the relative comparison is informative.
-- The χ² improvement uses one additional fitted depth parameter and no timing search. It is not a blind detection false-alarm probability, and nearby-star contamination is not ruled out.
-- Published global fits combine sectors, instruments, detrending choices, limb darkening, and astrophysical priors. This deliberately smaller test does not replace them.
+- The orbit is assumed circular and the quadratic limb-darkening coefficients are fixed representative values; they are not atmosphere-grid interpolations.
+- The scaled semi-major axis is derived from the saved composite semi-major axis and stellar radius; their uncertainties are not propagated.
+- Midpoint freedom corrects accumulated ephemeris error but introduces a bounded timing search. ΔBIC, not a naïve one-parameter p-value, is used as the support gate.
+- PDCSAP processing, dilution, stellar variability, transit-timing variations, and long-timescale covariance can still bias the inferred geometry.
+- Radius ratio, impact parameter, and fixed limb darkening are correlated. Published global fits with physical priors and simultaneous detrending remain authoritative.
 
 ## Repository structure
 
@@ -84,7 +82,7 @@ README.md
 index.html
 requirements.txt
 data/                       unmodified TESS FITS + NASA row + SOURCE.md
-scripts/analyze_transit.py  real-data analysis and figure generation
+scripts/analyze_transit.py  timing-adjusted limb-darkened transit fit
 figures/                    generated plot + summary_statistics.csv
 tests/                      real-data regression tests
 .github/workflows/tests.yml CI on every push and pull request
