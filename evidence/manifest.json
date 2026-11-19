@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "project": "HAT-P-32 b: An Inflated Giant behind a Hazy Limb",
+  "repository": "https://github.com/Biswajit1999/hat-p-32b-exoplanet-report",
+  "files": [
+    {
+      "label": "Data source notes",
+      "path": "data/SOURCE.md",
+      "role": "Data and provenance",
+      "bytes": 2167,
+      "sha256": "fd8794649ef5951550340f59596b36b7ffb7cc165434e3279530159158ac75dc",
+      "hash_basis": "LF-normalised text",
+      "format": "MD"
+    },
+    {
+      "label": "System parameters",
+      "path": "data/system_parameters.csv",
+      "role": "Data and provenance",
+      "bytes": 503,
+      "sha256": "a75bb8928145fbd2c268abac2ffefad5b58aac4e6649331fb58a6310e0cc8529",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 1,
+      "columns": 21,
+      "headers": [
+        "pl_name",
+        "hostname",
+        "ra",
+        "dec",
+        "pl_orbper",
+        "pl_tranmid",
+        "pl_trandur"
+      ],
+      "preview": [
+        [
+          "HAT-P-32 b",
+          "HAT-P-32",
+          "31.0427614",
+          "46.6878512",
+          "2.1500082",
+          "2455867.402743",
+          "3.12048"
+        ]
+      ]
+    },
+    {
+      "label": "Tess2022302161335 s0058 0000000292152376 0247 s lc",
+      "path": "data/tess2022302161335-s0058-0000000292152376-0247-s_lc.fits",
+      "role": "Data and provenance",
+      "bytes": 2027520,
+      "sha256": "808d5c6fa9608095cc7638e91424fefac5232af2c2b0df3ee5b4766c6f5ebc69",
+      "hash_basis": "exact bytes",
+      "format": "FITS"
+    },
+    {
+      "label": "Summary statistics",
+      "path": "figures/summary_statistics.csv",
+      "role": "Tables and numerical results",
+      "bytes": 1173,
+      "sha256": "5c64e722dbdfecb2bed78779f4cf7e9314657a3553dc41fe8d81a36ea1f3c770",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 36,
+      "columns": 3,
+      "headers": [
+        "quantity",
+        "value",
+        "unit"
+      ],
+      "preview": [
+        [
+          "sector",
+          "58",
+          "TESS sector"
+        ],
+        [
+          "period_days",
+          "2.1500082",
+          "days; NASA Exoplanet Archive"
+        ],
+        [
+          "published_duration_hours",
+          "3.12048",
+          "hours; NASA Exoplanet Archive"
+        ],
+        [
+          "a_over_rstar",
+          "5.34355306511",
+          "fixed from saved a and stellar radius"
+        ]
+      ]
+    },
+    {
+      "label": "Multisector statistics",
+      "path": "figures/multisector_statistics.csv",
+      "role": "Tables and numerical results",
+      "bytes": 352,
+      "sha256": "1f3443e7aa052f0c0149bf0abfe26e368f50b2c1501d79cf67e2e9f31f476e07",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 1,
+      "columns": 13,
+      "headers": [
+        "sector",
+        "filename",
+        "transit_events",
+        "n_points",
+        "transit_supported",
+        "delta_bic",
+        "timing_shift_hours"
+      ],
+      "preview": [
+        [
+          "58",
+          "tess2022302161335-s0058-0000000292152376-0247-s_lc.fits",
+          "13",
+          "6993",
+          "True",
+          "194575.8398",
+          "-0.009487891052"
+        ]
+      ]
+    },
+    {
+      "label": "Hatp32b depth consistency",
+      "path": "figures/hatp32b_depth_consistency.png",
+      "role": "Figures",
+      "bytes": 60016,
+      "sha256": "14d0cccc4b4fa227793adc32a7da9bd4b2d3326d86d1c2819833adae8bb3b3aa",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Hatp32b multisector transits",
+      "path": "figures/hatp32b_multisector_transits.png",
+      "role": "Figures",
+      "bytes": 61732,
+      "sha256": "7ab31d2947e51e14fec94175bc51690643b7e61dce6a3b6a01c9e5c4f2a77d2e",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Hatp32b noise diagnostics",
+      "path": "figures/hatp32b_noise_diagnostics.png",
+      "role": "Figures",
+      "bytes": 82236,
+      "sha256": "fa18878ccdd967b735571efa39934b326e90d6ae71ae33e5c12e25c1b5bbf2d2",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Hatp32b tess transit",
+      "path": "figures/hatp32b_tess_transit.png",
+      "role": "Figures",
+      "bytes": 438851,
+      "sha256": "fafc6c5737dea7699dbb29f79cfab1449aebf2c958a43e148f85aae7ed7bd383",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    }
+  ]
+}

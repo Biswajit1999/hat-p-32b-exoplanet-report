@@ -1,0 +1,51 @@
+{
+  "project": "HAT-P-32 b: An Inflated Giant behind a Hazy Limb",
+  "repository": "https://github.com/Biswajit1999/hat-p-32b-exoplanet-report",
+  "files": [
+    {
+      "label": "Data source notes",
+      "path": "data/SOURCE.md",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "System parameters",
+      "path": "data/system_parameters.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Tess2022302161335 s0058 0000000292152376 0247 s lc",
+      "path": "data/tess2022302161335-s0058-0000000292152376-0247-s_lc.fits",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Summary statistics",
+      "path": "figures/summary_statistics.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Multisector statistics",
+      "path": "figures/multisector_statistics.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Hatp32b depth consistency",
+      "path": "figures/hatp32b_depth_consistency.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Hatp32b multisector transits",
+      "path": "figures/hatp32b_multisector_transits.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Hatp32b noise diagnostics",
+      "path": "figures/hatp32b_noise_diagnostics.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Hatp32b tess transit",
+      "path": "figures/hatp32b_tess_transit.png",
+      "role": "Figures"
+    }
+  ]
+}
