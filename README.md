@@ -27,6 +27,13 @@ A bloated hot Jupiter around an active F star, analyzed with a timing-adjusted T
 
 ## Research evidence and downloads
 
+
+- [Download the machine-readable table profiles](evidence/table-profiles.json) for 3 archived tables. Open `table-evidence.html` from the checkout for the coverage chart.
+- Start with [Summary statistics](figures/summary_statistics.csv), [Multisector statistics](figures/multisector_statistics.csv), [Data source notes](data/SOURCE.md).
+- [View Hatp32b depth consistency](figures/hatp32b_depth_consistency.png).
+
+To rebuild the table profiles after rebuilding the evidence inventory, run `python scripts/profile_evidence_tables.py` followed by `python scripts/render_table_profiles.py`.
+
 [Open the evidence browser](https://biswajit1999.github.io/hat-p-32b-exoplanet-report/evidence.html) for 9 selected files, including [`summary_statistics.csv`](figures/summary_statistics.csv). Each file has a download link and SHA-256 digest.
 
 Rebuild the inventory and browser with `python scripts/evidence_catalog.py` and `python scripts/render_evidence_page.py`.
